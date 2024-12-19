@@ -5,4 +5,3 @@ dotenv.config({});
 //INFO: It is a key value store.
 
 export const redis = new Redis(process.env.REDIS_URL);
-await redis.set("key", "value");

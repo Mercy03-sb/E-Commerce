@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 export const useUserStore = create((set) => ({
   user: null,
   loading: false,
-  checkingAuth: true,
+  checkingAuth: false,
 
   signup: async ({ name, email, password, confirmPassword }) => {
     set({ loading: true });
