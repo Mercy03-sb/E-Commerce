@@ -12,15 +12,20 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@stripe/stripe-js": "^5.3.0",
+    "axios": "^1.7.9",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^2.5.1",
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
     "e-commerce": "file:",
     "express": "^4.21.2",
+    "framer-motion": "^11.15.0",
     "ioredis": "^5.4.1",
     "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.468.0",
     "mongoose": "^8.9.1",
+    "react-confetti": "^6.1.0",
     "stripe": "^17.4.0"
   },
   "devDependencies": {
