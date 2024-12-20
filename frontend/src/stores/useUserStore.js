@@ -50,9 +50,9 @@ export const useUserStore = create((set) => ({
     try {
       const response = await axios.get("/auth/profile");
       set({ user: response.data, checkingAuth: false });
-    } catch (error) {
+    } catch {
       set({ checkingAuth: false, user: null });
-      toast.error(error.response.data.message || "An error occurred");
+      // toast.error(error.response.data.message || "An error occurred");
     }
   },
 }));
