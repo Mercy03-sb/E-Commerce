@@ -35,6 +35,7 @@ export const useProductStore = create((set) => ({
     try {
       const response = await axios.get(`/products/category/${category}`);
       set({ products: response.data.products, loading: false });
+      console.log("Products by category:", response.data.products);
     } catch (error) {
       set({ error: "Failed to fetch products", loading: false });
       toast.error(error.response.data.error || "Failed to fetch products");
@@ -83,7 +84,8 @@ export const useProductStore = create((set) => ({
     set({ loading: true });
     try {
       const response = await axios.get("/products/featured");
-      set({ products: response.data, loading: false });
+      set({ products: response.data.products, loading: false });
+      console.log("Featured products:", response.data.products);
     } catch (error) {
       set({ error: "Failed to fetch products", loading: false });
       console.log("Error fetching featured products:", error);
