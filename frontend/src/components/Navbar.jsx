@@ -2,6 +2,7 @@ import { ShoppingCart, UserPlus, LogIn, LogOut, Lock } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useUserStore } from "../stores/useUserStore";
 import { useCartStore } from "../stores/useCartStore";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const { user, logout } = useUserStore();

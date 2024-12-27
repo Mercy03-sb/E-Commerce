@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import axios from "../lib/axios";
 import { toast } from "react-hot-toast";
+import { useCartStore } from "./useCartStore";
 
 export const useUserStore = create((set, get) => ({
   user: null,
@@ -28,6 +29,7 @@ export const useUserStore = create((set, get) => ({
       const res = await axios.post("/auth/login", { email, password });
       set({ user: res.data.user });
       console.log(res.data.user);
+      useCartStore.getState().getCartItems();
     } catch (error) {
       set({ loading: false });
       toast.error(error.response.data.message || "An error occurred");
@@ -38,6 +40,7 @@ export const useUserStore = create((set, get) => ({
     try {
       await axios.post("/auth/logout");
       set({ user: null });
+      useCartStore.getState().clearCart();
     } catch (error) {
       toast.error(
         error.response.data.message || "An error occurred during logout"

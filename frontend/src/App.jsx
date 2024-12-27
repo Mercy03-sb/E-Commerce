@@ -12,15 +12,12 @@ import CategoryPage from "./pages/CategoryPage";
 import CartPage from "./pages/CartPage";
 import PurchaseSuccessPage from "./pages/PurchaseSuccessPage";
 import PurchaseCancelPage from "./pages/PurchaseCancelPage";
-import { useCartStore } from "./stores/useCartStore";
 
 const App = () => {
   const { user, checkAuth, checkingAuth } = useUserStore();
-  const { getCartItems } = useCartStore();
   useEffect(() => {
     checkAuth();
-    getCartItems();
-  }, [checkAuth, getCartItems]);
+  }, [checkAuth]);
 
   if (checkingAuth) return <LoadingSpinner />;
 
